@@ -38,11 +38,12 @@ To start the magic, press the 'Play' button at the top of the script. You can st
 * It's best to place the '#' with the trigger name at the end of all presenter notes.
 * Don't use spaces for the trigger name
 * The script is full of checks for possible errors. To view these before running the script, click the button below in the script window that looks like a sheet of paper. Then click on "Messages". Now when running the script, the status of the program will be shown there.
+* Please make sure that the computer that runs the Keynote presentation has a wired or wireless network connection with the DiGidot C4(network)
 
 ## Contribute ##
 One of the reasons for us publishing this on github, is to inspire our DiGidot, offering extra powerful tools to be used with our products and to allow users to contribute to this code. 
 There are 2 files: 'keynote.scpt' and 'keynote_raw.txt'. We recommend to start with the .scpt file for developing and when it's done, copy all the text content to the 'keynote_raw.txt' for reviewing. In the future, there could be a better method to this. 
 
-Have fun programing!
+Have fun programming!
 
 Your DiGidot team
