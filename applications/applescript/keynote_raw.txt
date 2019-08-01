@@ -1,15 +1,19 @@
 # Copyright (c) DiGidot Technologies 2019
 # This file is under the MIT license
+global c4_url
+global destination_mac_address
 
-# ----- Start of parameters ------
+# ------------------------------------------ Start of parameters -------------------------------------------
+-------------------------------------
 
 # Fill in the IP address of the C4
-set c4_url to "192.168.43.1." -- 
 
-# Broadcast trigger to all C4's if True, else execute only on the C4 with the given IP address above
+set c4_url to "192.168.43.1"
+
+# Set broadcast_trigger from true to false if you  want to execute only on the C4 with the given IP address above. Else, Broadcast trigger to all C4's in the network
 set broadcast_trigger to true
 
-# Set this to true if you want to start the presentation right away when you're starting the applescript
+# Set autoplay from false to true if you want to start the presentation right away when you're starting the applescript
 set autoplay to false
 
 # ----- End of parameters ------
@@ -19,7 +23,7 @@ set destination_mac_address to "00:00:00:00:00:00"
 if broadcast_trigger is true then set destination_mac_address to "FF:FF:FF:FF:FF:FF"
 set error_code to "0"
 
-log "C4 Demo Application: Applescript HTTP-GET trigger from keynote"
+log "C4 Demo Application: Applescript HTTP-GET trigger from keynote v1.1"
 
 # Connect to the 'Keynote' application
 tell application "Keynote"
@@ -50,22 +54,40 @@ tell application "Keynote"
 							
 							# Grab all the text from the last '#'
 							set notes_array to my theSplit(presenter notes of it, "#")
-							set trigger_name to item 2 of notes_array
+							set command to item 2 of notes_array
 							
-							# Fire the trigger to the C4
-							set trigger_url to "http://" & c4_url & "/action/trigger?subaction=fire&mac_address=" & destination_mac_address & "&name=" & trigger_name
+							# Split again to get the main action and the name that applies to the action
+							set command_array to my theSplit(command, "/")
+							
+							# Get the action (trigger, scene or playlist) and the name for the trigger, scene of playlist)
+							set action to item 1 of command_array
+							set parameter to item 2 of command_array
+							
+							# Check if the paramter is a 'p' for playlist, 't' for trigger and 's' for sene
+							global final_url
+							set final_url to "0"
+							
+							if action is "p" then
+								set final_url to my StartPlaylist(parameter)
+							else if action is "s" then
+								set final_url to my PlayScene(parameter)
+							else if action is "t" then
+								set final_url to my FireTrigger(parameter)
+							end if
+							
+							log "testing test and var:" & action
 							
 							try
-								do shell script "curl --silent --max-time 3 " & quoted form of trigger_url
+								do shell script "curl --silent --max-time 3 " & quoted form of final_url
 							on error
-								set error_code to "Can't connect with url: " & trigger_url
+								set error_code to "Can't connect with url: " & final_url
 							end try
 							
 							# Display a message how everything was going (good or bad)
 							if error_code is not "0" then
 								log "An error has occurered: " & error_code
 							else
-								log "Succesfully sent trigger: " & trigger_name
+								log "Succesfully sent trigger: " & command
 							end if
 						end if
 					end if
@@ -78,6 +100,22 @@ tell application "Keynote"
 		end repeat
 	end tell
 end tell
+
+on FireTrigger(triggername)
+	set trigger_url to "http://" & c4_url & "/action/trigger?subaction=fire&mac_address=" & destination_mac_address & "&name=" & triggername
+	return trigger_url
+end FireTrigger
+
+on PlayScene(scenename)
+	set scene_url to "http://" & c4_url & "/action/playback?subaction=play&type=scene&mac_address=" & destination_mac_address & "&name=" & scenename
+	return scene_url
+end PlayScene
+
+on StartPlaylist(playlistname)
+	set playlist_url to "http://" & c4_url & "/action/playback?subaction=play&type=playlist&mac_address=" & destination_mac_address & "&name=" & playlistname
+	return playlist_url
+end StartPlaylist
+
 
 # Helper function to split an line of text into a array with a delimiter
 on theSplit(theString, theDelimiter)
