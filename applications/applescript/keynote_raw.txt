@@ -1,132 +1,1 @@
-# Copyright (c) DiGidot Technologies 2019
-# This file is under the MIT license
-global c4_url
-global destination_mac_address
-
-# ------------------------------------------ Start of parameters -------------------------------------------
--------------------------------------
-
-# Fill in the IP address of the C4
-
-set c4_url to "192.168.43.1"
-
-# Set broadcast_trigger from true to false if you  want to execute only on the C4 with the given IP address above. Else, Broadcast trigger to all C4's in the network
-set broadcast_trigger to true
-
-# Set autoplay from false to true if you want to start the presentation right away when you're starting the applescript
-set autoplay to false
-
-# ----- End of parameters ------
-
-
-set destination_mac_address to "00:00:00:00:00:00"
-if broadcast_trigger is true then set destination_mac_address to "FF:FF:FF:FF:FF:FF"
-set error_code to "0"
-
-log "C4 Demo Application: Applescript HTTP-GET trigger from keynote v1.1"
-
-# Connect to the 'Keynote' application
-tell application "Keynote"
-	
-	# Configure the auto play feature as well as checking if a document actually exists in 'Keynote'
-	if autoplay is true then activate
-	set current_slide to 0
-	
-	if not (exists document 1) then error number -1
-	
-	if autoplay is true then
-		try
-			if playing is false then start the front document
-		end try
-	end if
-	
-	# Connect to the document which is openend in Keynote
-	tell the front document
-		repeat
-			# Check here if a next or previous slide is requested
-			if current_slide ≠ current slide then
-				set current_slide to current slide
-				tell current slide
-					if skipped is false then
-						
-						# Check if there are any presenter notes (not regular notes!)
-						if presenter notes is not equal to "" then
-							
-							# Grab all the text from the last '#'
-							set notes_array to my theSplit(presenter notes of it, "#")
-							set command to item 2 of notes_array
-							
-							# Split again to get the main action and the name that applies to the action
-							set command_array to my theSplit(command, "/")
-							
-							# Get the action (trigger, scene or playlist) and the name for the trigger, scene of playlist)
-							set action to item 1 of command_array
-							set parameter to item 2 of command_array
-							
-							# Check if the paramter is a 'p' for playlist, 't' for trigger and 's' for sene
-							global final_url
-							set final_url to "0"
-							
-							if action is "p" then
-								set final_url to my StartPlaylist(parameter)
-							else if action is "s" then
-								set final_url to my PlayScene(parameter)
-							else if action is "t" then
-								set final_url to my FireTrigger(parameter)
-							end if
-							
-							log "testing test and var:" & action
-							
-							try
-								do shell script "curl --silent --max-time 3 " & quoted form of final_url
-							on error
-								set error_code to "Can't connect with url: " & final_url
-							end try
-							
-							# Display a message how everything was going (good or bad)
-							if error_code is not "0" then
-								log "An error has occurered: " & error_code
-							else
-								log "Succesfully sent trigger: " & command
-							end if
-						end if
-					end if
-				end tell
-				
-			end if
-			set current_slide to current slide
-			
-			delay 0.15
-		end repeat
-	end tell
-end tell
-
-on FireTrigger(triggername)
-	set trigger_url to "http://" & c4_url & "/action/trigger?subaction=fire&mac_address=" & destination_mac_address & "&name=" & triggername
-	return trigger_url
-end FireTrigger
-
-on PlayScene(scenename)
-	set scene_url to "http://" & c4_url & "/action/playback?subaction=play&type=scene&mac_address=" & destination_mac_address & "&name=" & scenename
-	return scene_url
-end PlayScene
-
-on StartPlaylist(playlistname)
-	set playlist_url to "http://" & c4_url & "/action/playback?subaction=play&type=playlist&mac_address=" & destination_mac_address & "&name=" & playlistname
-	return playlist_url
-end StartPlaylist
-
-
-# Helper function to split an line of text into a array with a delimiter
-on theSplit(theString, theDelimiter)
-	-- save delimiters to restore old settings
-	set oldDelimiters to AppleScript's text item delimiters
-	-- set delimiters to delimiter to be used
-	set AppleScript's text item delimiters to theDelimiter
-	-- create the array
-	set theArray to every text item of theString
-	-- restore the old setting
-	set AppleScript's text item delimiters to oldDelimiters
-	-- return the result
-	return theArray
-end theSplit
+# Copyright (c) DiGidot Technologies 2019# This file is under the MIT licenseglobal c4_urlglobal destination_mac_address# ------------------------------------------ Start of parameters --------------------------------------------------------------------------------# Fill in the IP address of the C4set c4_url to "192.168.43.1"# Set broadcast_trigger from true to false if you  want to execute only on the C4 with the given IP address above. Else, Broadcast trigger to all C4's in the networkset broadcast_trigger to true# Set autoplay from false to true if you want to start the presentation right away when you're starting the applescriptset autoplay to false# ----- End of parameters ------set destination_mac_address to "00:00:00:00:00:00"if broadcast_trigger is true then set destination_mac_address to "FF:FF:FF:FF:FF:FF"set error_code to "0"log "C4 Demo Application: Applescript HTTP-GET trigger from keynote v1.1"# Connect to the 'Keynote' applicationtell application "Keynote"		# Configure the auto play feature as well as checking if a document actually exists in 'Keynote'	if autoplay is true then activate	set current_slide to 0		if not (exists document 1) then error number -1		if autoplay is true then		try			if playing is false then start the front document		end try	end if		# Connect to the document which is openend in Keynote	tell the front document		repeat			# Check here if a next or previous slide is requested			if current_slide ≠ current slide then				set current_slide to current slide				tell current slide					if skipped is false then												# Check if there are any presenter notes (not regular notes!)						if presenter notes is not equal to "" then														# Grab all the text from the last '#'							set notes_array to my theSplit(presenter notes of it, "#")							set command to item 2 of notes_array														# Split again to get the main action and the name that applies to the action							set command_array to my theSplit(command, "/")														# Get the action (trigger, scene or playlist) and the name for the trigger, scene of playlist)							set action to item 1 of command_array							set parameter to item 2 of command_array														# Check if the paramter is a 'p' for playlist, 't' for trigger and 's' for sene							global final_url							set final_url to "0"							set argument_1 to 0							set command_array_size to count of command_array														if command_array_size is 3 then								set argument_1 to item 3 of command_array							end if														if action is "p" then								set final_url to my StartPlaylist(parameter, argument_1)							else if action is "s" then								set final_url to my PlayScene(parameter, argument_1)							else if action is "t" then								set final_url to my FireTrigger(parameter)							end if														try								do shell script "curl --silent --max-time 3 " & quoted form of final_url							on error								set error_code to "Can't connect with url: " & final_url							end try														# Display a message how everything was going (good or bad)							if error_code is not "0" then								log "An error has occurered: " & error_code							else								log "Succesfully sent trigger: " & command							end if						end if					end if				end tell							end if			set current_slide to current slide						delay 0.15		end repeat	end tellend tellon FireTrigger(triggername, fade)	set trigger_url to "http://" & c4_url & "/action/trigger?subaction=fire&mac_address=" & destination_mac_address & "&name=" & triggername	return trigger_urlend FireTriggeron PlayScene(scenename, fade)	set scene_url to "http://" & c4_url & "/action/playback?subaction=play&type=scene&fade=" & fade & "mac_address=" & destination_mac_address & "&name=" & scenename	return scene_urlend PlaySceneon StartPlaylist(playlistname)	set playlist_url to "http://" & c4_url & "/action/playback?subaction=play&type=playlist&ade=" & fade & "mac_address=" & destination_mac_address & "&name=" & playlistname	return playlist_urlend StartPlaylist# Helper function to split an line of text into a array with a delimiteron theSplit(theString, theDelimiter)	-- save delimiters to restore old settings	set oldDelimiters to AppleScript's text item delimiters	-- set delimiters to delimiter to be used	set AppleScript's text item delimiters to theDelimiter	-- create the array	set theArray to every text item of theString	-- restore the old setting	set AppleScript's text item delimiters to oldDelimiters	-- return the result	return theArrayend theSplit
