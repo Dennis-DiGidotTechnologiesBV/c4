@@ -1,4 +1,4 @@
-# Applescript Keynote Demo #
+# Applescript Keynote Demo (Only for Applescript V1, not for V2)#
 
 ## Overview ##
 This is an application written for the DiGidot C4 LED which can be used in combination with the Apple app 'Keynote' for presentations to trigger HTTP-GET triggers. 
