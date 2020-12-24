@@ -1,5 +1,5 @@
 ## Download Link ##
-[Download v2.1.5 Official](https://update.digidot.eu/v2019_1/c4/firmware/v2_0/files/C-4_2020-12-23_1024.c4u)
+[Download v2.1.5 Official](http://update.digidot.eu/v2019_1/c4/firmware/v2_0/files/C-4_2020-12-23_1024.c4u)
 
 ## Release notes for DiGidot C4 Firmware v2.1.5 - Released on 23 December 2020 ##
 
@@ -31,17 +31,17 @@
 * Update: On the FWupdate page, the default upload speed is almost 2 times faster.
 * SDcard: In some rare cases, it could happen that, when you insert a SDcard into a DiGidot C4 Extended, "No SDcard" is returned as a error. If you're sure that the SDcard is inserted correctly into the C4, you can go to the web interface -> Settings -> Interface -> Enable developer mode. Then go back to Settings -> Debug Environment -> Force SDcard communication. This way, the card detect pin is bypassed.
 * UI: On the device page, the interface will no longer send request to the C4 in the background when the window is not active anymore.
-* UI: More informative error feedback messages on the file browser page.
+* UI: More informative error messages on the file browser page.
 * UI: The whole UI now has a design which is more consistent across different pages.
-* UI: Text description on the trigger page, when using type "analog' or "button" is also more consistent.
+* UI: Text description on the trigger page, when using type "analog" or "button" is also more consistent.
 * UI: Text is now selectable on many pages so you can copy/paste things easily.
-* UI: Removed unnecessary 'status' requests when  the WiFi tab on network page is active.
+* UI: Removed unnecessary "status" requests when  the WiFi tab on network page is active.
 * UI: Text description of Time Period option while using a time trigger.
 * UI: On the accounts page, there have been several improvements regarding: clicking actions of overlaying buttons, change the cursor icon when hovering over buttons, and prevent editing accounts when the current user doesn't have enough rights to edit them.
 * UI: When saving a trigger, the interface will now re-fetch all triggers from the device and then re-adds the trigger to that. Because of this extra check, any changes from the moment the interface is loaded, until the trigger is actual saved, won't be lost anymore. 
 * UI: When loading the interface, all assets of the interface are now checked for integrity and a reload button will be shown to notify the user something went wrong.
 * UI: Various improvements in the dark theme.
-* UI: Improved error handling and stability when using the interface on a high number of devices (over 20).
+* UI: Improved error handling and stability when using the interface on a high number of devices (more than 20).
 * UI: If a scene can't be played, an error will be shown.
 
 ##### Fixed #####
