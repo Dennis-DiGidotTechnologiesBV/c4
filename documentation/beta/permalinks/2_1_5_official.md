@@ -69,7 +69,6 @@
 * UI: When playing the first scene on the scene page, the previous command now properly goes to the last scene from the list.
 * UI: A Playlist will now play normally if the device hasn't setup an IP-address yet.
 * UI: If any device has a expired license, the interface won't be stuck in a reload loop anymore.
-
 * UI: Scenes in a playlist, and colors from the generated color scroll can be dragged around again.
-* UÏ: When giving a recorded scene a name, the length of the name will be checked now (min 2 and max 32 characters).
-* UI: When DST is enabled, the sunset/sunrise is now correct and won't offset any longer by an hour.
+* UI: When giving a recorded scene a name, the length of the name will be checked now (min 2 and max 32 characters).
+* UI: When DST is enabled, the sunset/sunrise is now correct and won't offset any longer by an hour. 
