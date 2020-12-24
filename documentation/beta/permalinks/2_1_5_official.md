@@ -13,7 +13,7 @@
 * Time: It's now possible from the interface to enable or disabled Daylight Saving Time (DST). The DST implementation is based on Europe.
 * Art-Net redirect: The destination address can be specified for a Art-Net redirect. By default, it will broadcast the universe on the whole network. It's recommended to specify an IP-address to significantly reduce the network load.
 * UI: It's now possible to add multiple universes on a DMX output. Keep in mind that the total number of channels on that output is still 512.
-* UI: After a recording, the UI verifies the record of all connected devices and shows a message if is a significant number of skippend frames. 
+* UI: After a recording, the UI verifies the record of all connected devices and shows a message if is a significant number of skipped frames. 
 * UI: Global settings toggle "Smart DHCP Server" and "Subnetmask" (for ethernet) added.
 * UI: When creating a UDP or OSC trigger, the default receiving port can be found the text description (port 6454 for UDP and 8000 for OSC).
 
