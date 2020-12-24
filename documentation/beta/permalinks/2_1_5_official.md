@@ -1,5 +1,5 @@
 ## Download Link ##
-[Download v2.1.5 Official](http://update.digidot.eu/v2019_1/c4/firmware/v2_0/files/C-4_2020-12-23_1024.c4u)
+[Download v2.1.5 Official](https://github.com/Dennis-DiGidotTechnologiesBV/c4/releases/download/v2.1.5-official/C-4_2020-12-23_1024.c4u)
 
 ## Release notes for DiGidot C4 Firmware v2.1.5 - Released on 23 December 2020 ##
 
