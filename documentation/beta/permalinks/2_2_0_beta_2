@@ -1,0 +1,36 @@
+## Download Link (available until next beta or release) ##
+[Download v2.2.0 Beta 2](http://update.digidot.eu/v2019_1/c4/firmware/v2_0/beta_files/C-4_2021-04-23_1638.c4u)
+
+## Changelog for DiGidot C4 Firmware v2.2.0 Beta 2 - Published on 23 April 2021 ##
+
+### New ###
+* Triggers: It's now possible for the play and stop action of a scene, to specify a layer number. This way, scenes can still be played in the background while other scenes take priority.
+* UX: The player bar can now show multiple scenes of different devices are playing different scenes.
+* UX: On the monitor page, the FPS is now divded into 2 categories: Input and Output FPS. The Input FPS can be Art-Net, sACN or a Scene. The Output FPS is always standalone and shwos the actual refresh time on the output.
+* UX: (Extended only) On the debug page, we've added an option called "API logging" which logs every single API request fomr the UX to the DiGidot C4 and saves it on the SD-card in the LOG file. 
+
+### Added ###
+* UX: Password can now be set when trying to exit from the "Playlist" page.
+
+### Changed ###
+* Users: A user can no longer highlight a device it's output and also can't delete playlists anymore.
+* UDP: Regular UDP triggers will no longer send "0.000" in it's message, only it's keyword starting with '!' and ending with '#'. Existing UDP triggers, before this update, will still use the zero value in it's message unless it's changed.
+
+### Improved ###
+* UX: All groups can now be removed from the 3 dots menu.
+* UX: The info message about the settings that they're loaded from the SD-card, is now steamlinex accross all pages.
+* UX: Refinement in the styling of the RDM page, the Record page, and the dark theme in general.
+* UX: When configuring a trigger that needs to preform an action on a different devce, the UX now properly checks which scenes and playlists are present on the target device(s).
+* WiFi: Both the Firmware and the UX have improved the process of checking the credentials and connecting as a client (also including the DHCP Lease process) to an existing WiFi network. 
+
+### Fixed ###
+* RDM: When doing a regular discover, it can nog longer result in a "Freeze".
+* UX: The Quick-Edit feature on the IOconfig page will no longer crash when working with Art-Net redirects.
+* UX: If a selected group should be loaded on the interface startup, the settings and will now loaded correctly.
+* UX: The Playback speed value  on the advanced settings of a scene is correct now.
+* UX: Art-Net fallback works again .
+* UX: The time of the recoring now stays in place and no longer wiggles. 
+* UX: Universe 0 won't be added anymore on the IOconfig page when using sACN (where universe 1 is the start).
+* UX: When switching from devices on the record page, the inputs to check if there's a signal incoming, will properly update.
+* UX: Alert will be shown once again when trying to create a HTTP/UDP/OSC trigger while the protocol itself is disabled in the settings.
+* UX: Autocomplete operation when in Quick-Edit mode won't show an unsaved alert anymore.
