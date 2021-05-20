@@ -1,1 +1,48 @@
-#Release
+## Download Link (available until next beta or release) ##
+[Download v2.2.0 Beta 1](http://update.digidot.eu/v2019_1/c4/firmware/v2_0/beta_files/tbd.c4u)
+
+## Release Notes for DiGidot C4 Firmware v2.2.0 - Published on 20 May 2021 ##
+
+### New ###
+* **sACN**: (Streaming ACN) We've added a second input protocol which is used more and more in popular lighting consoles: sACN! We support the multicast version, which is the default, different priority's and also the sync universes.
+* **RDM**: (Remote Device Management): We now have support for RDM devices with DMX! We can get and set the most common commands like the device name, highlighting the device, the type of the device, the number of channels it's using and the start address.
+* **Input/Output Quick edit**: When switching to the Quick edit mode on the IOconfig page, the interface will no longer send every change, like add, change, or remove a universe to the C4. Instead, you can modify anything on any C4 and port and it won't apply immediately to the C4 so it's very fast.. When you're done with the configuration, you can press 'Save' and all the changes data will be send at once to the C4.
+* **Full Group support**: Partially, it was already in the interface but now groups are fully supported on all pages such as with playback scenes and playlists, updating the firmware, triggering and recording!
+* **Send feedback to us**: If you have a question, encountered a bug or maybe have a feature request, there is now a new form where you can contact us directly within the interface! Go to 'Support' -> 'Feedback' and let us know.
+* **Advanced backup and restore functionality**: It's now possible to backup your scenes and playlists from the SD-card. While this could take a while, it can be convenient if the C4 is physically unreachable and time isn't that important. You can also save the current settings (IOconfig, network and accounts) on the SD-card to the start-up folder so all settings are applied everytime you power-up the C4 regardless of the current configuration.
+* **For developers only**: The new experimental scene generator can now be tested from the 'Create Scenes' page if you have 'developer mode' enabled. You do need to have an internet connection to use it.
+
+### Added ###
+* Time: The C4 can now give back the uptime which is the time in milliseconds since power up.
+* UX: It's now possible to give the backup a name.
+* UX: On the record page, it now shows the FPS information per C4 and a warning if it's too low.
+* UX: If you have selected one device from the 'select device' at the top, when reopening this pop-up, it will scroll down to this device. 
+* UX: When using DMX TTL, an info message shows up about adding multiple universes on one port. If you use DMX TTL to convert it to DMX, you can only have one universe but if you're using DMX TTL to control a LED-string directly, you can have multiple universes on one port,  
+
+### Changed ###
+* UX: On many places where you can input a time value, the single input field (with was in milliseconds most of the time) has been replaced with a time control (Hours:Minutes:Seconds:Milliseconds) so from now on, you can quickly confirm if a specific time is set or if a new time value needs to be configured.
+* UX: On the global settings page of the Input/Output configuration, if you have Art-Net redirects configured, you now have the option to apply the global settings only on regular inputs and keep the Art-Net redirect(s) untouched.
+* UX: On the homepage, there's a new option with 'Support' where the manual can be found. On this page, you can also find the new 'Feedback' and 'FAQ' pages. Keep in mind that these two options requiers an internet connection where the manual can still be viewed offline.
+
+### Improved ###
+* Triggers: The 'Next' and 'Previous' commands for playback, works only with a playlist. The trigger description has been updated with this information.
+* UX: You can now have multiple time inputs in a single trigger.
+* UX: On the monitor page, next to 'Latency from Ethernet', it will show the latency from the Wi-Fi depending on how you are connected with your C4.
+* UX: If the interface is loading with a different port than 80, it will use the port specified in the address bar to communicate with the C4.
+* UX: The network page now reacts better when devices are connected after the page has been loaded.
+* UX: When uploading a developer build, the interface now checks more frequently if the C4 is done with flashing the firmware.
+* UX: In all popover menus, a mouse hover color is added so you can see which option you're going to choose.
+* UX: The style of the knobs in the sliders for 'Color Adjust / HSV' and Saturation modifications, have been changed so it's always visible regardless of the background color. 
+* UX: The action layout of 'Color Adjust/HSV' when using a trigger has been modified to make it clearer which color the scene is going to be.
+* UX: If you're trying to put the Ethernet and WiFi of the C4 in the same network, you will get an info message as this may result in connection dropouts.
+
+### Fixed ###
+* Time: The calculated sunset/sunrise time for some countries are corrected.
+* UX: When mixing a C4 Live and Extended, triggers are now correctly loaded from the Extended only.
+* UX: On the network page, the sorting method by order and by IP-address, as well as the functionality sorting ascending or descending, is now working correctly.
+* UX: When updating multiple C4's, the correct update file will be selected, so no more 'Update empty file' message will appear.
+* UX: If you're very fast with selecting a device while the home page is still loading, it won't generate an error anymore.
+* UX: For an analog trigger, the event 'between dimmer values' works again.
+* UX: Highlighting a port on the C4 will now have the proper number of channels on that port.
+* UX: Action lists can now be triggered again with HTTP (get and post) requests.
+* UX: The Trigger watcher now gives proper feedback when a trigger uses more than 1 input.
