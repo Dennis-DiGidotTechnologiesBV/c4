@@ -1,0 +1,32 @@
+## Download Link (available until next beta or release) ##
+[Download v2.2.1 Beta 1](http://update.digidot.eu/v2019_1/c4/firmware/v2_0/beta_files/C-4_2021-07-20_1450.c4u)
+
+## Changelog for DiGidot C4 Firmware v2.2.1 Beta 1 - Published on 20 of July 2021 ##
+
+### Changed ###
+* IOconfig: 'Art-Net redirect' is now called 'Art-Net out'
+
+### Improved ###
+* General: All input fields with the type 'number' will now immediately display an error even if the input fields doesn't have focus. 
+* Backup: The estimated time for creating a backup will now include all devices it's content.
+
+### Fixed ###
+* High - IOconfig: When you're using sACN as input protocol and open the advanced settings, the protocol won't be switched back to Art-Net anymore.
+* Medium - App: On iOS 14, the height will now be calculated correctly. Before, sometimes the playerbar was displayed off screen.
+* Medium - Scenes: A issue has fixed that what caused by fast switching between scenes.
+* Medium - Triggers: If you have configured a HTTP trigger and perform a re-discover, the trigger page will now load correctly if you try to edit the HTTP trigger.
+* Medium - Cache: A pull-to-refresh action on the scenes, playlist and trigger page, will now check the cached version of the items against the items on the devices and indicates other open interfaces that somethings has changed if the cached and current items aren't the same.
+* Low - General: When you lost the connection to a device, if you click the 'cancel' button, it will properly clear the message queue regardless if the previous message has been successfully sent.
+* Low - General: Sorting devices on the network and IOconfig page, based on the 'devices order', is functional again.
+* Low - Ticket: On iOS, the support ticket page will now be fully shown.
+* Low - IOconfig: When switching from sACN to Art-Net, the universe number will now be checked if it isn't higher than 32767 which is the highest number possible for an Art-Net universe.
+* Low - IOconfig: When changing the input protocol in quick-edit mode, the IO configuration now stay's in edit mode instead of directly saving it to the devices.
+* Low - Scenes: When you don't have a IOconfig configured on a single device, the 'generate scene' page will now show an error.
+* Low - Scenes: If you have devices where some of those don't have an SD-cards present, the other devices which do have an SD-card will now be correctly loaded.
+* Low - Playlist: The scene list will now be refreshed when you try to add a scene to a playlist after you've recorded something.
+* Low - Triggers: On the analog calibration and the watcher views, when switching to a different device, the page will now be updated correctly to the selected device.
+* Low - Triggers: The 'Save and Clone' functionality now also works after the trigger is already created.
+* Low - Triggers: On the linked trigger page, is now possible to use the input watcher if you're working with sACN.
+* Low - Triggers: A duration (delay) value of a 0-10 volt analog trigger is now correctly updated after the trigger has been saved.
+* Low - Triggers: Triggers that use the 0-10 Volt range will now trigger correctly on the given value based on the 'offset' and 'length' parameter.
+* Low - Triggers: Linked triggers that are linked to start a specific scene in a playlist won't start the first scene anymore if the value is 100%.
