@@ -1,4 +1,4 @@
-## Download Link (available until next beta or release) ##
+## Download Link ##
 [Download v2.2.0](https://github.com/Dennis-DiGidotTechnologiesBV/c4/releases/download/v2.2.0-production/C-4_2021-05-20_2351.c4u)
 
 ## Release Notes for DiGidot C4 Firmware v2.2.0 - Published on 20 of May 2021 ##
