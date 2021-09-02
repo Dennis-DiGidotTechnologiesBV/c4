@@ -1,5 +1,5 @@
 ## Download v2.2.1 ##
-[Click here](https://github.com/Dennis-DiGidotTechnologiesBV/c4/releases/download/untagged-8ec0da4d6958a45b2645/C-4_2021-09-02_1354.c4u)
+[Click here](https://github.com/Dennis-DiGidotTechnologiesBV/c4/releases/download/v2.2.1-production/C-4_2021-09-02_1354.c4u)
 
 
 ## Changelog for DiGidot C4 Firmware v2.2.1 - Released on 2 September 2021 ##
