@@ -1,0 +1,7 @@
+{
+  "date": "2019-07-11",
+  "version": "2019-07-11 11:53:20",
+  "fw_version": "2.0.4",
+  "fw_type": "production",
+  "message": "<h2>Changelog for DiGidot C4 Firmware v2.0.4 - Released on 11-7-2019</h2>\n\n<h5>Fixed</h5>\n\n<ul>\n<li>Playlist: A playlist which is not repeated will now always start again from the first scene and not from the last scene when triggered for the second time</li>\n\n"
+}

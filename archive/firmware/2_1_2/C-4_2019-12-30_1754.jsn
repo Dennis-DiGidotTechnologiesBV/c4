@@ -1,0 +1,7 @@
+{
+  "date": "2019-12-30",
+  "version": "2019-12-30 17:54:59",
+  "fw_version": "2.1.2",
+  "fw_type": "production",
+  "message": "<h2>Changelog for DiGidot C4 Firmware v2.1.2 - Released on 30-12-2019</h2>\n\n<h5>Improved</h5>\n\n<ul>\n<li>Interface: Reduced network load when navigating in the settings menu.</li>\n</ul>\n\n<h5>Fixed</h5>\n\n<ul>\n<li>Update: Updating no longer fails sometimes if no IP-address are set for the C4 devices.</li>\n<li>Time trigger: Fix for leap year calculation where time triggers in the last 2 weeks of december were not triggering.</li>\n</ul>\n"
+}

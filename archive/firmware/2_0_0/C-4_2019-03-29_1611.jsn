@@ -1,0 +1,7 @@
+{
+  "date": "2019-03-29",
+  "version": "2019-03-29 16:11:48",
+  "fw_version": "2.0.0",
+  "fw_type": "production",
+  "message": "</b><br><br>It's finally here: The DiGidot C4 2.0 firmware update! This update is the biggest update since the beginning of the DiGidot C4. <br>Here are a few of the new DiGidot C4 features:<br><br>- Playlists*<br>- Action Lists*<br>- Groups<br>- Combined triggers*<br>- Trigger calibration*<br>- Scene editor*<br>- OSC support*<br>- DHCP server<br>- Integrated manual<br><br>* DiGidot C4 Extended only.<br><br>And many many more which can be seen in this <a target='_blank' href='http://digidot.eu/img/new_features_update.jpg'><u>image</u></a>  <br><br>Some features that we had planned for this update, require further testing and will follow in an additional update shortly.<br>These are:<br>- RDM support<br>- Improved playback synchronisation with multiple devices<br>- Advanced scene editor<br>- Additional OSC features<br><br><span style='color: red !important; font-weight: bold;'>IMPORTANT<br>When you decide to update the C4, we recommend that you do it on a physically accessable device, in case you need to use the reset button. We discourage updating devices that are integrated in an existing and working project. Existing triggers will break with this firmware!</span><br><br>For more information go to <a href='https://digidot.eu/support'><u>https://digidot.eu/support</u></a><br>"
+}

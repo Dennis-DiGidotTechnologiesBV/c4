@@ -1,0 +1,7 @@
+{
+  "date": "2019-05-28",
+  "version": "2019-05-28 18:19:05",
+  "fw_version": "2.0.2",
+  "fw_type": "production",
+  "message": "<br><h3><strong>Changelog for DiGidot C4 Firmware v2.0.2 - 28-5-2019</strong></h3><br><h5>Improved</h5><ul><li>Trigger: Trigger: Improved error messages when a trigger via HTTP GET is not found or a name/unique_id field is not send with the request</li></ul><h5>Fixed</h5><ul><li>Trigger: Option to enable/disable triggering with HTTP GET now works correctly again</li><li>DHCPServer: DHCP server setting is now correctly set after the Getting Started Wizard</li><li>microSD: Add more checks to prevent corruption of a file while formatting the microSD card</li></ul><p>Various other bug fixes and stability improvements</p>"
+}
