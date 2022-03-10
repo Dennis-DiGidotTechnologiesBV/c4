@@ -10,10 +10,6 @@ support these 2 LED IC's.
 
 **This firmware is tested and suitable for a 24/7 operation**
 
-## Usage
-
-* Install the custom firmware. After that, you can select the DMX-TTL or UCS512B3 (with 750 kHz) option and it will fly!
-
 ## Difference
 
 _With 1 universe_
@@ -29,6 +25,10 @@ Regular FW: <20 FPS
 Custom FW: 32 FPS
 
 So it's always 3 times faster than the regular firmware!
+
+## Usage
+
+* Install the custom firmware. After that, you can select the DMX-TTL or UCS512B3 (with 750 kHz) option and it will fly!
 
 ## Changelog
 10-03-2022: First version
