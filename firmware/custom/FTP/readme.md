@@ -32,7 +32,7 @@ Download = **4 times faster**
 * Install the custom firmware. After that, the FTP server will be active right away.
 * To Download files, you just need a FTP-Client like _FileZilla_ .
 * In FileZilla, you configure a new connection with "insecure FTP" to the IP-address of the DiGidot controller just like this:
-<img align="left" src="https://i.imgur.com/DmEkM3R.png.jpg"
+<img align="left" src="https://i.imgur.com/DmEkM3R.png.jpg">
 * Now you can download files by dragging them from the right window to the left one.
 
 ## Changelog
