@@ -19,7 +19,7 @@ Regular FW: 40 FPS / Custom FW: 100 FPS
 Regular FW: 20 FPS / Custom FW: 60 FPS
 
 #### With 3 universes
-Regular FW: <20 FPS / Custom FW: 32 FPS
+Regular FW: <20 FPS / Custom FW: 42 FPS
 
 So it's always 3 times faster than the regular firmware!
 
