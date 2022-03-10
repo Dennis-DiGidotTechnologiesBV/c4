@@ -33,7 +33,9 @@ Download = **4 times faster**
 * To Download files, you just need a FTP-Client like _FileZilla_ .
 * In FileZilla, you configure a new connection with "insecure FTP" to the IP-address of the DiGidot controller just like this:
 <img src="https://i.imgur.com/DmEkM3R.png.jpg">
-* Now you can download files by dragging them from the right window to the left one.
+
+Now you can download files by dragging them from the right window to the left one.
+<img src="https://imgur.com/a/KwwWttL">
 
 ## Changelog
 10-03-2022: First version
