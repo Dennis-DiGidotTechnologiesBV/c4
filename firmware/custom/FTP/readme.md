@@ -8,9 +8,21 @@ This firmware adds FTP to the DiGidot Controller. After you've installed this, y
 for using this, is that it's much much faster than the interface can download or upload files. Especially if you have large (and many) scenes, this can save loads of time.
 
 ## So how fast is it?
-
 We've done some testing on a scene that is 10mb. These are the results:
 
-Using the interface:
-* Upload (from your computer to the DiGidot controller):
-* Download (from the DiGidot controller to your computer):
+* Upload (from your computer to the DiGidot controller)
+* Download (from the DiGidot controller to your computer)
+
+**With the App / interface:**
+Upload: 3:21
+Download: 1:46
+
+**FTP**
+Upload: 25 sec
+Download: 26 sec
+
+Upload = **8 times faster**
+Download = **4 times faster**
+
+**Changelog**
+10-03-2022: First version
