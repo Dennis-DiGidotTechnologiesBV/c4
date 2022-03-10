@@ -13,11 +13,13 @@ We've done some testing on a scene that is 10mb. These are the results:
 * Upload (from your computer to the DiGidot controller)
 * Download (from the DiGidot controller to your computer)
 
-**With the App / interface:**
+**With the App / interface**
+
 Upload: 3:21
 Download: 1:46
 
-**FTP**
+**With FTP**
+
 Upload: 25 sec
 Download: 26 sec
 
