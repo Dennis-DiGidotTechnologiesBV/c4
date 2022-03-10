@@ -31,11 +31,13 @@ Download = **4 times faster**
 
 * Install the custom firmware. After that, the FTP server will be active right away.
 * To Download files, you just need a FTP-Client like _FileZilla_ .
+* Force the FTP-Client to work in 'binary' transfer mode. In FileZilla, this is done by going to the menubar -> Edit -> Settings -> FTP: File Types -> Choose _Binary_
 * In FileZilla, you configure a new connection with "insecure FTP" to the IP-address of the DiGidot controller just like this:
 <img src="https://i.imgur.com/DmEkM3R.png.jpg">
 
-Now you can download files by dragging them from the right window to the left one.
-<img src="https://imgur.com/a/KwwWttL">
+* When connecting for the first time, a warning may pop-up about it's using a insecure connection. This is no problem as long as the network you're on, is local and not conencted to the internet
+* Now you can download files by dragging them from the right window to the left one.
+<img src="https://i.imgur.com/IT2h1Nk.png">
 
 ## Changelog
 10-03-2022: First version
