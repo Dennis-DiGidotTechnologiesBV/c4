@@ -12,23 +12,17 @@ support these 2 LED IC's.
 
 ## Difference
 
-_With 1 universe_
+### With 1 universe
+Regular FW: 40 FPS.
+Custom FW: 100 FPS.
 
-Regular FW: 40 FPS
+#### With 2 univers
+Regular FW: 20 FPS.
+Custom FW: 60 FPS.
 
-Custom FW: 100 FPS
-
-_With 2 universe_
-
-Regular FW: 20 FPS
-
-Custom FW: 60 FPS
-
-_With 3 universe_
-
-Regular FW: <20 FPS
-
-Custom FW: 32 FPS
+# With 3 universe_
+Regular FW: <20 FPS.
+Custom FW: 32 FPS.
 
 So it's always 3 times faster than the regular firmware!
 
