@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom app</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script> <!-- including the jquery library -->
+    <script src="./sha.js"></script> <!-- including the sha library -->
+    <style>
+        .container {
+            padding: 20px;
+        }
+        #result {
+            background-color: #eee; 
+            width: 100%;
+            max-width: 800px;
+            min-height: 120px;
+            white-space: normal;
+            word-break: break-word;
+        }
+        #msg-select {
+        	display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Custom application</h1>
+    <p>This is an example of how to communicate with the Digitdot C4 with jQuery.</p>
+    <h2>Send message</h2>
+
+    <label>Load message</label>
+    <select id="msg-select">
+        <option>Select message</option>
+    </select>
+
+    <textarea cols='50' rows='10' id="msg"></textarea>
+    <div>
+        <button id="button">Send</button>
+    </div>
+</div>
+
+<div class='container'>
+    <h3>Result of DiGidot C4</h3>
+    <pre id='result'></pre>
+</div>
+
+
+<script>
+        var actions = [{
+            title: "Devices settings",
+            actions: [{
+                title: "Get status",
+                message: {
+                    "action": "status",
+                    "get": ["time", "master_fader", "license", "settings", "wifi", "scene_manager", "mappings", "analog", "performance"], "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Get settings", message: {"action": "settings", "subaction": "get", "mac_address": "00:00:00:00:00:00"}
+            }, {
+                title: "Set settings", message: {
+                    "action": "settings",
+                    "subaction": "set",
+                    "name": "",
+                    "status_leds": true,
+                    "ethernet_leds": true,
+                    "listen_group": [],
+                    "order": 0,
+                    "udp_triggering": false,
+                    "http_triggering": false,
+                    "osc_triggering": false,
+                    "sd_trigger_logging": false, 
+                    "mac_address": "00:00:00:00:00:00"
+
+                }
+            }, {title: "Get Time", message: {"action": "time"}}, {
+                title: "Set Time", message: {
+                    "action": "time", "item": {
+                        "sec": 45, "min": 34, "hour": 12, "dom": 6, "month": 1, "year": 2020, "dow": 3, "dst": 1
+                    }, "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Set masterfader", message: {
+                    "action": "fader", "type": "master_fader", "value": 65535, "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Get masterfader", message: {
+                    "action": "fader", "type": "master_fader", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {title: "Set master device", message: {"action": "settings", "subaction": "set", "always_master": 1, "mac_address": "00:00:00:00:00:00"}}, {
+                title: "Discover devices", message: {
+                    "action": "discover", "clear_discovered": true, "timeout": 1200, "max_devices": 5, "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Reset devices", message: {
+                    "action": "reset", "mac_address": "00:00:00:00:00:00"
+                }
+            }]
+        }, {
+            title: "IO config", actions: [{
+                title: "Get IO config item", message: {
+                    "action": "io_manager", "type": "io_config", "unique_id": [1001], "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Set IO config item", message: {
+                    "action": "io_manager", "subaction": "add", "type": "io_config", "io_config": {}, "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Clear IO config", message: {
+                    "action": "io_manager", "type": "io_config", "subaction": "remove", "unique_id": [], "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Art-Net listener", message: {
+                    "action": "input", "unique_id": 1001, "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Get IO config unique ids", message: {
+                    "action": "io_manager", "type": "io_config", "mac_address": "00:00:00:00:00:00"
+                }
+            }
+
+            ]
+        }, {
+            title: "Wi-Fi", actions: [{
+                title: "Get Wi-Fi settings", message: {
+                    "action": "wifi", "subaction": "settings", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Set Wi-Fi settings", message: {
+                    "action": "wifi", "subaction": "settings", "wifi_settings": {
+                        "enabled": true,
+                        "mode": "ap",
+                        "dhcp_server": false,
+                        "useb_ssid": false,
+                        "ssid_hidden": false,
+                        "ip_address[0]": "2.0.0.2",
+                        "ip_address[1]": "0.0.0.0",
+                        "ip_address[2]": "0.0.0.0",
+                        "ip_address[3]": "0.0.0.0",
+                        "netmask": "255.0.0.0",
+                        "gateway": "0.0.0.0",
+                        "channel": 11,
+                        "bssid": "f4:ec:38:dd:69:3c",
+                        "ssid": "digidot network",
+                        "password": "123456789",
+                        "security": "wpa",
+                        "dhcp_start": "192.168.0.2",
+                        "dhcp_end": "192.168.0.50"
+                    }, "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Wi-Fi get state", message: {
+                    "action": "wifi", "subaction": "state", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Wi-Fi scan", message: {
+                    "action": "wifi", "subaction": "scan", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Wi-Fi get scan results", message: {
+                    "action": "wifi", "subaction": "scan_result", "index": 1, "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Wi-Fi check client connection details", message: {
+                    "action": "wifi",
+                    "subaction": "client_connection",
+                    "mode": "check",
+                    "ssid": "inventdesign",
+                    "password": "password", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Wi-Fi result client connection details", message: {
+                    "action": "wifi", "subaction": "client_connection", "mode": "result", "mac_address": "00:00:00:00:00:00"
+                }
+            }]
+        }, {
+            title: "SD card", actions: [{
+                title: "Get info", message: {
+                    "action": "sd_card", "subaction": "lsdir", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Get directory", message: {
+                    "action": "sd_card", "subaction": "ls", "dir": ".", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Write to SD card", message: {
+                    "action": "sd_card",
+                    "subaction": "nano",
+                    "filename": "TRIGGER.JSN",
+                    "create": true,
+                    "seek": 0,
+                    "data": "{data of file}",
+                    "length": 1024, "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Read SD card", message: {
+                    "action": "sd_card",
+                    "subaction": "cat",
+                    "filename": "./SYSTEM/TRIGGER.JSN",
+                    "seek": 0,
+                    "length": 1024, "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Format SD card", message: {
+                    "action": "sd_card", "subaction": "format", "mac_address": "00:00:00:00:00:00"
+                }
+            }]
+        }, {
+            title: "Scenes", actions: [{
+                title: "Get scenes", message: {
+                    "action": "scene_manager", "subaction": "list", "length": 2, "offset": 0, "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Start playlist", message: {
+                    "action": "playback",
+                    "type": "playlist",
+                    "fade": 0,
+                    "scenes": [{"scene": 1528205614, "hsv_values": [[0, 0, 0]], "fade": 0, "duration": 30000}],
+                    "alpha": 65535,
+                    "priority": 2, 
+                    "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Stop playlist", message: {
+                    "action": "playback", "subaction": "stop", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Rename scene", message: {
+                    "action": "scene_manager", "subaction": "scene_name", "scene": 1528205614, "name": "New scene name", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Delete scene", message: {
+                    "action": "sd_card", "subaction": "rm", "filename": "SCENES/{Filename}", "mac_address": "00:00:00:00:00:00"
+                }
+            }]
+        }, {
+            title: "HSV", actions: [{
+                title: "Get HSV", message: {
+                    "action": "io_manager", "subaction": "get_hsv_offset", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Set HSV", message: {
+                    "action": "hsv", "subaction": "offset", "hue": 360, "saturation": 1, "value": 1
+                }
+            }]
+        }, {
+            title: "Accounts", actions: [{
+                title: "Authenticate", message: {
+                    "action": "authenticate", "subaction": "check", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Get accounts", message: {
+                    "action": "authenticate", "subaction": "list", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Add account", message: {
+                    "action": "authenticate",
+                    "subaction": "add_user",
+                    "username": "{username}",
+                    "pwdhash": "{pwdhash}",
+                    "authentication_level": "{authlevel 1-5 }", 
+                    "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Edit account", message: {
+                    "action": "authenticate",
+                    "subaction": "edit_user",
+                    "username": "{username}",
+                    "new_username": "{new_username}",
+                    "pwdhash": "{new pwdhash}", 
+                    "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Delete account", message: {
+                    "action": "authenticate", "subaction": "remove_user", username: "{username}", "mac_address": "00:00:00:00:00:00"
+                }
+            }]
+        }, {
+            title: "Triggers", actions: [{
+                title: "Trigger script", message: {
+                    "action": "trigger", trigger: 23352342, "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Activate triggers", message: {
+                    "action": "trigger_manager", "subaction": "activate", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Deactivate triggers", message: {
+                    "action": "trigger_manager", "subaction": "deactivate", "mac_address": "00:00:00:00:00:00"
+                }
+            }
+
+            ]
+        }, {
+            title: "Record", actions: [{
+                title: "Start record", message: {
+                    "action": "scene_manager", "subaction": "rec_start", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Stop record", message: {
+                    "action": "scene_manager", "subaction": "rec_stop", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Play raw scene", message: {
+                    "action": "scene_manager", "mode": 0, "subaction": "play_raw_scene", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Stop raw scene", message: {
+                    "action": "scene_manager", "subaction": "stop_raw_scene", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Save record", message: {
+                    "action": "scene_manager",
+                    "subaction": "save",
+                    "mode": 1,
+                    "scene": "{sceneid}",
+                    "name": "{sceneName}", 
+                    "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Empty Record config", message: {
+                    "action": "scene_manager", "subaction": "empty_rec_config", "scene": "", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Erase raw scene", message: {
+                    "action": "scene_manager", "subaction": "raw_erase", "scene": "", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Add record config", message: {
+                    "action": "scene_manager",
+                    "subaction": "add_rec_config",
+                    "unique_id": 1001,
+                    "mask": null,
+                    "masklen": 0, 
+                    "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Set variable framerate", message: {
+                    "action": "record", "subaction": "set_settings", "mode": "auto", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Set fixed framerate", message: {
+                    "action": "record", "subaction": "set_settings", "mode": "fixed", "fps": "60", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Get record settings", message: {
+                    "action": "record", "subaction": "get_settings", "mac_address": "00:00:00:00:00:00"
+                }
+            }
+
+            ]
+        }, {
+            title: "License", actions: [{
+                title: "Get license", message: {
+                    "action": "license", "subaction": "get", "mac_address": "00:00:00:00:00:00"
+                }
+            }, {
+                title: "Set license", message: {
+                    "action": "license", "subaction": "set", "license": "{license}", "mac_address": "00:00:00:00:00:00"
+                }
+            }
+
+            ]
+        }];
+
+        var ip = "10.254.254.254";
+
+        /*
+        Init onclick functions after page is loaded.
+        */
+        $(document).ready(function () {
+            $("#button").click(function () { //function that runs when button is pressed
+                let msg = $("#msg").val()
+                sendMessage(msg); //Send command to set value of channel
+            });
+
+            $("#msg-select").on("change", function () { //function that runs when the fadebutton is pressed
+                $("#msg").val($(this).val())
+            });
+        });
+
+        $.each(actions, function (index, actionGroup) {
+            $.each(actionGroup['actions'], function (i, action) {
+
+                var msg = JSON.stringify(action.message)  
+            
+               $('#msg-select').append($('<option>', { 
+                        value: msg,
+                        text : action.title 
+                    }));
+            });
+        });
+
+        function sendMessage(message) {
+            var msg = message;
+            if (typeof(message) != "string") {
+                msg = JSON.stringify(message);              //converts the JSON object to a string so it can be sent    
+            } 
+
+            let shaObj = new jsSHA("SHA-1", "TEXT");//generate a sha-1 object
+            shaObj.update(msg);                     //hash the JSON string with sha-1
+            shaObj = shaObj.getHash("HEX") + msg;   //combine the sha-1 hash with the JSON string
+
+            $.ajax({                                        //do a ajax post to the DiGidot C4
+                type: "POST",
+                url: 'http://' + ip + '/ajax.json',     //url wich is the default DiGidot C4 ip and the corresponding location
+                data: shaObj,
+                dataType: 'json',                           //the sha-1 followed by the JSON string
+                success: function (data) {
+                    $('#result').text(JSON.stringify(data));
+                },
+                error: function (e) {
+                    $('#result').text(JSON.stringify(e));
+                }
+            });
+        }
+
+    </script>
+
+</body>
+</html>
