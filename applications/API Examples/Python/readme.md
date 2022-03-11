@@ -8,6 +8,7 @@ This is an example that shows how the API interacts with the DiGidot Controller 
 
 ## Usage
 
+* Download the file
 * Check if you have Python 3 installed. For windows, open a command prompt by clicking Start -> Type cmd -> type py. For Mac, python is installed by default.
 * If it says 'is not regonized as an internal or external command...' then you need to install Python. https://www.python.org/downloads/
 * After installing, hold down the left SHIFT key and right click anywhere in the folder.
