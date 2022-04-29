@@ -2,12 +2,14 @@
 
 ### New ###
 * LED IC TM1934
-* Parallel Load of device data: With the release of the PxLNet Node, we saw the need to improve our total loading time, especially when you connect multiple devices to each other. The load time is the time it takes to get all the Input/Output/ Network configuration, scenes, triggers etc. from all devices. With this improvement, the load time is dramatically reduced, if all devices have their own IP-address. Till now, if you have 20 devices, and each device required 5 seconds to load, the total loading time would be 100 seconds.
+* Loading device data parallel: With the release of the PxLNet Node, we saw the need to improve our total loading time, especially when you connect multiple devices to each other. The load time is the time it takes to get all the Input/Output/ Network configuration, scenes, triggers etc. from all devices. With this improvement, the load time is dramatically reduced, if all devices have their own IP-address. Till now, if you have 20 devices, and each device required 5 seconds to load, the total loading time would be 100 seconds.
 With this update, the total time will be reduced to the loading time of about 1 device, which is 5 seconds. Basically, the device that takes the longest time to load, it will roughly take that amount of time, to load the data of all devices, regardless of the total number of devices. 
 
 ### Improved ###
 * Art-Net performance: If the input/output configuration only contains Art-Net universes to listen on, sACN will now be completely disabled  instead of going to stand-by mode. This way, if only Art-Net is being used on the DiGidot controller, but in the same network, sACN is used for something else, a negative effect on performance is prevented.
 * Memory allocation: If the DiGidot controller needs to allocate some memory, for example, when creating a trigger, the function that is responsible for actually checking if the requested memory is available, wasn't working properly and returned no error. This way, the function that requested memory, asserted that the memory was available but in reality, it wasn't. This could let to some random crashes (red/white status LED) that weren't traceable for anybody. This has been resolved now.
+* JSON file parsing: The DiGidot controller now actively shows an error (red light on the controller and create an error log entry) if any JSON file (trigger/ configuration etc.) failed to read correctly.
+* FPS monitor: Both the input and output FPS counter are rewritten and now shows much more accurate numbers on the Monitor and Diagnosic page.
 * UX: The network page has been completely rewritten so a lot of (small) UX bugs have been fixed with this.
 * UX: On the Device page, while retrieving the actual time, the Daylight Saving Time (DST) parameter will also be shown.
 * UX: The layout on the Network page has some fine adjustments done.
@@ -16,8 +18,6 @@ With this update, the total time will be reduced to the loading time of about 1 
 * UX: The process of automatically add/change/remove an IOelement because an IO trigger listen on an different universe is now more robust.
 * UX: Dark theme in general has gotten a few tweaks.
 * UX: Improved IP-address / subnetmask validation checks on the Network page.
-* * JSON file parsing: The DiGidot controller now actively shows an error (red light on the controller and create an error log entry) if any JSON file (trigger/ configuration etc.) failed to read correctly.
-* FPS monitor: Both the input and output FPS counter are rewritten and now shows much more accurate numbers on the Monitor and Diagnosic page.
 
 ### Changed ###
 * Recording: Number of unique input universes is going up from 14 to 16 universes
