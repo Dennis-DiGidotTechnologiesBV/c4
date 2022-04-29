@@ -13,17 +13,14 @@ With this update, the total time will be reduced to the loading time of about 1 
 * UX: The network page has been completely rewritten so a lot of (small) UX bugs have been fixed with this.
 * UX: On the Device page, while retrieving the actual time, the Daylight Saving Time (DST) parameter will also be shown.
 * UX: The layout on the Network page has some fine adjustments done.
-* UX: Dark theme on Diagnostic page is now more consistent.
-* UX: On the Playlist page, the notation of the length of a playlist, is improved.
 * UX: The process of automatically add/change/remove an IOelement because an IO trigger listen on an different universe is now more robust.
-* UX: Dark theme in general has gotten a few tweaks.
-* UX: Improved IP-address / subnetmask validation checks on the Network page.
+* UX: Dark theme in general has gotten a few tweaks on various pages.
 
 ### Changed ###
+* General: Product name references 'PxLNode' changed to 'PxLNet Node'.
 * Recording: Number of unique input universes is going up from 14 to 16 universes
 * Recording: The alert with 'FPS too low' (shown when the average input FPS, before recording, is below 50) has changed from a warning (yellow background) to a note (blue background. The note just indicates to the user, that the recording could be more smooth, if you increase the input FPS. But this is not always possible or required.
 * UX: At the trigger page, when creating or editing a trigger, the number of (sub)devices is now correctly calculated, taking the bays into account.
-* * General: Product name references 'PxLNode' changed to 'PxLNet Node'.
 
 ### Fixed ###
 * (High) Getting Started: Now works again if you don't have a DiGidot C4 Extended in your network.
@@ -42,9 +39,3 @@ With this update, the total time will be reduced to the loading time of about 1 
 * (Low) RDM: The DiGidot controller could crash in some circumstances when a RDM parameter is parsed. This has been solved.
 * (Low) UX: On the Input/output config page, you can once again, divide a DMX output of 512 channels into multiple universes.
 * (Low) UX: Cloning a trigger works again.
-
-
-
-
-
-
