@@ -30,9 +30,9 @@ With this update, the total time will be reduced to the loading time of about 1 
 * (Medium) sACN: Streaming ACN now works correctly when synchronisation is enabled.
 * (Medium) UX: On the trigger page, the current OSC and UDP settings are now correctly shown.
 * (Medium) UX: If only the a single PxLNet Node is present, the update functionality now works again.
+* (Medium) UX: Interface can be used again from a Firefox browser.
 * (Low) Scene Generator (Beta): The preview function works again.
 * (Low) WiFi: When switching the WiFi mode from Access Point to Client, it now returns the correct error 'password incorrect' instead of 'busy' or 'unknown'.
-* (Medium) UX: Interface can be used again from a Firefox browser.
 * (Low) UX: The interface now correctly checks if the DiGidot controllers have different accounts on them and gives the option to add the missing ones of delete them.
 * (Low) UX: Reloading the Quick-Edit, when changes are made, won't give an 'unsaved' message anymore.
 * (Low) Accounts: When you try to restore an account with a password of 3 characters or less, it won't fail anymore.
