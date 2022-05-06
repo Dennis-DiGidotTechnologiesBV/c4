@@ -1,4 +1,4 @@
-## Release notes for DiGidot C4 Firmware v2.3.1 - Published on 9 of May 2022 ##
+## Release notes for DiGidot C4 Firmware v2.3.1 - Published on 3 of May 2022 ##
 
 ### New ###
 * LED IC TM1934
@@ -38,4 +38,3 @@ With this update, the total time will be reduced to the loading time of about 1 
 * (Low) UX: On the Input/output config page, you can once again, divide a DMX output of 512 channels into multiple universes.
 * (Low) Accounts: When you try to restore an account with a password of 3 characters or less, it won't fail anymore.
 * (Low) RDM: The DiGidot controller could crash in some circumstances when a RDM parameter is parsed. This has been solved.
-
