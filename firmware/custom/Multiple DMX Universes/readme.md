@@ -15,4 +15,4 @@ This firmware can have up to 2 DMX universes configured on a single DMX output.
 * Install the custom firmware. After that, you can configure up to 2 DMX universes for D1+D2 and for D3+D4
 
 ## Changelog
-02-27-2022: First version
+27-07-2022: First version
