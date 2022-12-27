@@ -26,6 +26,10 @@ Regular FW: 40 FPS / Custom FW: 100 FPS
 
 To actually change the current, you type in the IP-address of the DiGidot controller and then add /tm1814_current/index.html
 
+user_interface_tm1814_current_control.png
+
+ [![User interface TM1814 current control](https://github.com/Dennis-DiGidotTechnologiesBV/c4/blob/master/firmware/custom/TM1814%20current%20control/user_interface_tm1814_current_control.png)](https://github.com/Dennis-DiGidotTechnologiesBV/c4/blob/master/firmware/custom/TM1814%20current%20control/user_interface_tm1814_current_control.png)
+
 
 ## Changelog
 21-12-2022: Third version (version 1 and 2 are for internal use)
