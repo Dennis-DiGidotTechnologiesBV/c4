@@ -8,11 +8,6 @@ This firmware can limit the output current if you're using the TM1814 LED IC. Th
 
 **This firmware is tested and suitable for a 24/7 operation**
 
-## Difference
-
-#### With 1 universe
-Regular FW: 40 FPS / Custom FW: 100 FPS
-
 ## Installation
 
 * Install the custom firmware. 
