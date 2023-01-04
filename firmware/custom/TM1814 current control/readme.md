@@ -33,5 +33,5 @@ There are 4 sliders where you can control between 0 and 63. If you want to have 
 The value that you can set for the current (0-63) is not the actual current you set in mA for the LED IC. For that, we've done some tests on the OneEightyOne LED Strip 31520 (or 3152001) and we measured each step, how it effects the actual current of the LED IC. The results are stored in the excel sheet that's listed in this folder.
 
 ## Changelog
-21-12-2022: Third version (version 1 and 2 are for internal use)
+21-12-2022: Third version (version 1 and 2 are for internal use).
 04-01-2023: Special version which limits the current value to 45 except the blue channel which is limited to 32.
