@@ -34,4 +34,5 @@ The value that you can set for the current (0-63) is not the actual current you 
 
 ## Changelog
 21-12-2022: Third version (version 1 and 2 are for internal use).
+
 04-01-2023: Special version which limits the current value to 45 except the blue channel which is limited to 32.
