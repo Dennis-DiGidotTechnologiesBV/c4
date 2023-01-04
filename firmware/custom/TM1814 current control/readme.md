@@ -6,9 +6,11 @@
 ## About this firmware 
 This firmware can limit the output current if you're using the TM1814 LED IC. This LED IC has 64 steps to limit the current of the individual colors (RGBW). There is a custom interface to config the current limiter and also to save the values and apply at startup of the DiGidot Controller.
 
+There are 2 variants to choose from. If you want to play around with the current values, then go for the version that's from 21 of December. If you just want to limit the current right away, with fixed values (75% for R,G and W and 50% for B) then choose the 4 of January version!
+
 **This firmware is tested and suitable for a 24/7 operation**
 
-## Installation
+## Installation (December 21 version only)
 
 * Install the custom firmware. 
 * Factory-Reset the DiGidot controller.
@@ -18,7 +20,7 @@ This firmware can limit the output current if you're using the TM1814 LED IC. Th
 
 Keep in mind that by default, all the current values are 0 and the output will be disabled untill you access the TM1814 user interface page. Continue readingto do that.
 
-## Usage
+## Usage (December 21 version only)
 
 To actually change the current, you type in the IP-address of the DiGidot controller and then add '/tm1814_current/index.html' to the url. So for example, if the IP-address of the DiGidot controller is 10.254.254.254 then the full URL would be 'http://10.254.254.254/tm1814_current/index.html' .
 
@@ -32,3 +34,4 @@ The value that you can set for the current (0-63) is not the actual current you 
 
 ## Changelog
 21-12-2022: Third version (version 1 and 2 are for internal use)
+04-01-2023: Special version which limits the current value to 45 except the blue channel which is limited to 32.
