@@ -41,3 +41,4 @@ Download = **4 times faster**
 
 ## Changelog
 10-03-2022: First version
+15-03-2023: Updated firmware base to 2.3.4
