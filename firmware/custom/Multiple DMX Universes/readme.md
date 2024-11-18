@@ -16,3 +16,4 @@ This firmware can have up to 2 DMX universes configured on a single DMX output.
 
 ## Changelog
 27-07-2022: First version
+18-11-2024: Added compatibility with newer batches
