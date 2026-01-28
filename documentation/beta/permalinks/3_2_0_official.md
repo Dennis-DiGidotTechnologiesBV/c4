@@ -1,4 +1,4 @@
-## Release Notes for DiGidot Controller Software v3.2 - Released on January 27, 2026 ##
+## Release Notes for DiGidot Controller Software v3.2 - Released on January 28, 2026 ##
 
 ##### General #####
 This is version 3.2.0 of DCS and it's available for every DiGidot controller. The main focus of this release is stability. We've received a lot of valuable feedback on previous releases like v3.0.3 and v3.1. For us, it's important that at its core, the software is reliable and can be used in 24/7 operation mode. 
