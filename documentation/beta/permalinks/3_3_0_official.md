@@ -16,6 +16,5 @@
 * **Medium: DMX Programmer**: Duplicate channels are now correctly configured.
 * **Medium: DST**: Selecting daylight saving time for Europe or USA now works properly.
 * **Low: Developer**: Device model ID can now be cleared successfully again.
-
 * **Low: Backup & Restore**: Fixed an issue where the DHCP server field was not set correctly after restoring a backup.
 * **Low: IOconfig**: The value 'max_time_until_resend' is now saved correctly.
