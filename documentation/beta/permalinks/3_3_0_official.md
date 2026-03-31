@@ -11,7 +11,6 @@
 
 ##### Fixed #####
 * **High: Firmware alignment**: Improved firmware alignment to prevent freezes during operation.
-
 * **Medium: DMX Programmer**: Programming in DMX512 mode is working correctly again.
 * **Medium: IOconfig**: Global settings now behave as expected.
 * **Medium: DMX Programmer**: Duplicate channels are now correctly configured.
