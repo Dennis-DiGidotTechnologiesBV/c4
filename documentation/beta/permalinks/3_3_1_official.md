@@ -2,6 +2,7 @@
 
 ## Added
 - **LED IC (Experimental):** Added support for UCS7604 with native 16-bit control from the input.
+- **SD Card:** Added support for MK Industries SD cards.
 
 ## Changed
 - **FTP:** Improved documentation and guidance for using the FTP service.
